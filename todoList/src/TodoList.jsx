@@ -11,6 +11,7 @@ function TodoList(){
 
     function addTask(){
         setTask()
+        setNewTasks("")
     }
 
     function removeTask(index){
@@ -31,10 +32,7 @@ function TodoList(){
     <>
         <div className="container">
             <h1>To Do List</h1>
-                <div className="display">
-                    <ol>
-                        
-                    </ol>
+                <div onChange={tasks.map( task, index) } className="display">
                     <input type="text" placeholder="Place Task Here" />
                     <button>Add Task</button>
                 </div>

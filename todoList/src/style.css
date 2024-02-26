@@ -9,8 +9,30 @@
     text-align: center;
 
 }
+input{
+    height: 2em;
+    border-radius: 2px
+    
+}
+input::placeholder{
+    text-align: center;
+}
 button{
     margin: .5em .2em;
     padding: .5em;
     border-radius: 12px;
+    color: #fff;
 }
+.add{
+    background-color: green;
+}
+.remove{
+    background-color: red;
+    color: white;
+}
+.up{
+    background-color: blue;
+}
+ .down{
+    background-color: blueviolet;
+ }

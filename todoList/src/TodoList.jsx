@@ -2,23 +2,26 @@ import React, {useState, useEffect} from "react";
 
 function TodoList(){
 
-    const [tasks, setTask] = useState(["Hello", "hi"]);
+    const [tasks, setTask] = useState([]);
     const [newtasks, setNewTasks] = useState("")
 
     function handleInput(e){
         setNewTasks(e.target.value)
-        
-        
-
     }
 
     function addTask(){
-        setTask()
-        setNewTasks("")
+
+        if(newtasks.trim !== ""){
+            setTask(t => ([...t, newtasks]))
+            setNewTasks("")
+        }
     }
 
     function removeTask(index){
-        
+        newtasks.filter( (task, i) => {
+            (i !== index)
+        }
+        ) 
     }
 
     function moveTaskUp(index){
@@ -42,7 +45,7 @@ function TodoList(){
                     placeholder="Place Task Here"
                      value={newtasks}/>
 
-                    <button>Add Task</button>
+                    <button onClick={addTask} className="add">Add Task</button>
 
                 </div>
 
@@ -50,9 +53,9 @@ function TodoList(){
                     {tasks.map((task, index) => 
                         <li key={index}>
                             <span>{task}</span>
-                            <button onClick={() => removeTask (index)}>Remove</button>
-                            <button onClick={() => moveTaskUp (index)}>Move Up</button>
-                            <button onClick={() => moveTaskDown (index)}>Move Down</button>
+                            <button className="remove" onClick={() => removeTask (index)}>Remove</button>
+                            <button className="up"  onClick={() => moveTaskUp (index)}>Move Up</button>
+                            <button className="down"  onClick={() => moveTaskDown (index)}>Move Down</button>
                         </li>
                         
                     )}

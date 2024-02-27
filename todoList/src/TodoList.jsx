@@ -18,18 +18,34 @@ function TodoList(){
     }
 
     function removeTask(index){
-        newtasks.filter( (task, i) => {
-            (i !== index)
-        }
-        ) 
+
+       const updatedTask = tasks.filter((_, i) => i !== index)
+       setTask(updatedTask)
     }
 
     function moveTaskUp(index){
         // array destructuring react
+        if(index > 0 ){
+        const updatedTask = [...tasks];
+            [updatedTask[index], updatedTask[index - 1]] = [updatedTask[index - 1], updatedTask[index]];
+            setTask(updatedTask)
+        }
+        
     }
+//     if(index > 0){
+//         const updatedTasks = [...tasks];
+//         [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1], updatedTasks[index] ]
+//         setTask(updatedTasks);
+//     }
+// }
 
     function moveTaskDown(index){
         // array destructuring react
+        if(index > 0 ){
+            const updatedTask = [...tasks];
+                [updatedTask[index], updatedTask[index + 1]] = [updatedTask[index + 1], updatedTask[index]];
+                setTask(updatedTask)
+            }
     }
 
 
